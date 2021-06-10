@@ -14,10 +14,10 @@ def write_csv(data, filename):
 
 
 # helper function to get json from spacex API
-def call_api(page, params):
-    if page in a1constants.endpoints.keys():
-        page = a1constants.endpoints[page]
-    url = f'{a1constants.BASE_SPACEX_URL}{page}'
+def call_api(path, params):
+    if path in a1constants.endpoints.keys():
+        path = a1constants.endpoints[path]
+    url = f'{a1constants.BASE_SPACEX_URL}{path}'
     res = requests.get(url, params=params)
     json_res = json.loads(res.content)  # JSON -> dictionary
     return json_res
