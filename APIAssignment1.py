@@ -3,7 +3,7 @@ import json
 
 import requests
 
-import A1constants
+import a1constants
 
 
 # helper function to write to csv from list, all lines at once
@@ -15,9 +15,9 @@ def write_csv(data, filename):
 
 # helper function to get json from spacex API
 def call_api(page, params):
-    if page in A1constants.endpoints.keys():
-        page = A1constants.endpoints[page]
-    url = f'{A1constants.BASE_SPACEX_URL}{page}'
+    if page in a1constants.endpoints.keys():
+        page = a1constants.endpoints[page]
+    url = f'{a1constants.BASE_SPACEX_URL}{page}'
     res = requests.get(url, params=params)
     json_res = json.loads(res.content)  # JSON -> dictionary
     return json_res
